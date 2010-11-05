@@ -201,8 +201,7 @@ If you work for Aperture Science, something like this might be good:
         interval  => { Constant => { interval => 1 } }, # try every second
         try       => {
             my ($success, $error) = @_;
-            $cake--;
-            $error->('out of cake!') if --$cake =< 0;
+            $error->('out of cake!') if $cake-- < 0;
             do_science( on_success => $success, on_error => $error );
         },
 
