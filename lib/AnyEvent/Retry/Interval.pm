@@ -8,7 +8,6 @@ use namespace::autoclean;
 with 'AnyEvent::Retry::Interval::API';
 
 has 'counter' => (
-    is      => 'bare', # has 'Moose' => ( is => 'bug ridden' );
     traits  => ['Counter'],
     reader  => 'counter',
     isa     => 'Num',
