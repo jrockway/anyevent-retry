@@ -3,6 +3,12 @@ use warnings;
 use Test::More;
 use Test::Exception;
 
+BEGIN {
+    if(!eval 'require Coro'){
+        plan skip_all => 'this test requires Coro';
+    }
+}
+
 use AnyEvent;
 use Coro;
 use Coro::AnyEvent;
