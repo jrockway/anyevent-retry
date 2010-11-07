@@ -5,6 +5,7 @@ use MooseX::Types::Common::Numeric qw(PositiveNum);
 
 use Math::Fibonacci qw(term);
 
+use true;
 use namespace::autoclean;
 
 with 'AnyEvent::Retry::Interval';
@@ -22,7 +23,7 @@ sub next {
     return $self->scale * term($i);
 }
 
-1;
+__PACKAGE__->meta->make_immutable;
 
 __END__
 

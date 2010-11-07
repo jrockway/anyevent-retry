@@ -2,6 +2,7 @@ package AnyEvent::Retry::Interval::Constant;
 # ABSTRACT: a constant interval
 use Moose;
 use MooseX::Types::Common::Numeric qw(PositiveNum);
+use true;
 use namespace::autoclean;
 
 with 'AnyEvent::Retry::Interval';
@@ -19,7 +20,7 @@ sub next {
     return $self->interval;
 }
 
-1;
+__PACKAGE__->meta->make_immutable;
 
 __END__
 

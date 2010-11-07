@@ -1,6 +1,8 @@
 package AnyEvent::Retry::Interval;
 # ABSTRACT: role representing a time sequence generator for C<AnyEvent::Retry>
 use Moose::Role;
+
+use true;
 use namespace::autoclean;
 
 with 'AnyEvent::Retry::Interval::API';
@@ -32,8 +34,6 @@ around 'next' => sub {
     return ($result, $self->counter) if wantarray;
     return $result;
 };
-
-1;
 
 __END__
 

@@ -1,6 +1,8 @@
 package AnyEvent::Retry::Types;
+# ABSTRACT: Types used internally by C<AnyEvent::Retry>
 use strict;
 use warnings;
+use true;
 
 use MooseX::Types -declare => ['Interval'];
 use MooseX::Types::Moose qw(Str HashRef);
@@ -31,5 +33,3 @@ coerce Interval, from HashRef, via {
     Class::MOP::load_class($name);
     return $name->new($args);
 };
-
-1;

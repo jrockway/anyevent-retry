@@ -1,10 +1,10 @@
 package AnyEvent::Retry::Interval::Multi;
 # ABSTRACT: combine multiple interval objects into one interval
-
 use Moose;
-use namespace::autoclean;
-
 use AnyEvent::Retry::Types qw(Interval);
+
+use true;
+use namespace::autoclean;
 
 with 'AnyEvent::Retry::Interval';
 
@@ -66,7 +66,7 @@ sub check_condition {
     return $switch;
 }
 
-1;
+__PACKAGE__->meta->make_immutable;
 
 __END__
 

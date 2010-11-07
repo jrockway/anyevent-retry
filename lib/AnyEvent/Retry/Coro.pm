@@ -78,6 +78,8 @@ sub run {
     $class->wait;
 }
 
+__PACKAGE__->meta->make_immutable;
+
 __END__
 
 =head1 SYNOPSIS
