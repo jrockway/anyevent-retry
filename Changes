@@ -1,5 +1,7 @@
 Change history for AnyEvent-Retry
 {{$NEXT}}
+
+0.03     Sun Nov 7 01:15:49 CDT 2010
     - add $VERSION number
     - make everything immutable
     - add optional prereq on Coro
