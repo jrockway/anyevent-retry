@@ -128,12 +128,6 @@ sub handle_result {
 sub run_code {
     my ($self) = @_;
 
-    # we weaken $self here so that if the user does "undef $retry", we
-    # DEMOLISH the object and silently discard the results of the
-    # running code.  feel free to subclass if want to keep the class
-    # alive arbitrarily.
-    weaken $self;
-
     my $success = sub {
         my $result = shift;
         return unless defined $self;
