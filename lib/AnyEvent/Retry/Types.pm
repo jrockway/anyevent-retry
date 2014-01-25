@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use true;
 
+use Class::Load;
 use MooseX::Types -declare => ['Interval'];
 use MooseX::Types::Moose qw(Str HashRef);
 
@@ -21,7 +22,7 @@ sub class_name {
 
 coerce Interval, from Str, via {
     my $name = class_name($_);
-    Class::MOP::load_class($name);
+    Class::Load::load_class($name);
     return $name->new;
 };
 
@@ -30,6 +31,6 @@ coerce Interval, from HashRef, via {
     my $args = $_->{$req};
 
     my $name = class_name($req);
-    Class::MOP::load_class($name);
+    Class::Load::load_class($name);
     return $name->new($args);
 };
